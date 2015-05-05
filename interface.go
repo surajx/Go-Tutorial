@@ -36,7 +36,7 @@ func (ma marksSlice) Swap(m1, m2 int) {
 func (mar marksSlice) blaher() {
 	stringShuffler := func(name string) string {
 		for i := 0; i < len(name); i++ {
-
+			rand.Intn(s.Len() - 1)
 		}
 	}
 	for i := 0; i < len(mar); i++ {
