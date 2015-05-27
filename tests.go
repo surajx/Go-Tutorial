@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
-	"shuffler"
+	"strings"
 )
 
 //returns i**x
@@ -70,7 +70,24 @@ func main() {
 
 	fmt.Println(gps_map["Google"].Magnitude())
 
-	is := intSlice{3, 1, 4, 1, 5}
-	shuffler.Shuffle(is, 23458)
-	fmt.Println(is)
+	/*	is := intSlice{3, 1, 4, 1, 5}
+		shuffler.Shuffle(is, 23458)
+		fmt.Println(is)*/
+
+	helloWorld("hello world", func(msg string) {
+		fmt.Println(strings.ToUpper(msg))
+	})
+
+	helloWorld("hello world", func(suffix string) Printer {
+		return func(s string) {
+			fmt.Println(s + suffix)
+		}
+	}("!!!"))
+
+}
+
+type Printer func(string)
+
+func helloWorld(message string, printFn Printer) {
+	printFn(message)
 }
